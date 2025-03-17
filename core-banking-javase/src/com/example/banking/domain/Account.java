@@ -1,5 +1,9 @@
 package com.example.banking.domain;
-
+// Ctrl + Shift + F -> Format
+// Ctrl + Alt + Arrow (Down) -> Duplicate Line
+// Alt + Arrow (Down/Up) -> Move line
+// Ctrl + D -> Delete Line
+// Alt + Shift + S -> Generate Source code
 public class Account {
 	// Attributes: data/property/state
 	private String iban;
@@ -10,6 +14,14 @@ public class Account {
 	public Account(String iban, double balance) {
 		this.iban = iban;
 		this.balance = balance;
+	}
+
+	public String getIban() {
+		return iban;
+	}
+
+	public double getBalance() {
+		return balance;
 	}
 
 	// business method
