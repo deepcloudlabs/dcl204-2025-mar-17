@@ -4,7 +4,7 @@ package com.example.banking.domain;
 // Alt + Arrow (Down/Up) -> Move line
 // Ctrl + D -> Delete Line
 // Alt + Shift + S -> Generate Source code
-public class Account {
+public class Account extends Object {
 	// Attributes: data/property/state
 	private String iban;
 	private double balance;
@@ -47,4 +47,11 @@ public class Account {
 		this.balance = this.balance + amount;
 		return this.balance;
 	}
+
+	@Override
+	public String toString() {
+		return "Account [iban=" + iban + ", balance=" + balance + "]";
+	}
+	
+	
 }

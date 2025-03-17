@@ -12,7 +12,8 @@ public class BankingApp {
 		System.out.println(acc1.getBalance());
 		acc1.withdraw(5_000);
 		System.out.println(acc1.getBalance());
-		
+		System.out.println(acc1.toString());
+		System.out.println(acc1);
 	}
 
 }
