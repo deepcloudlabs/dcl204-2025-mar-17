@@ -35,7 +35,7 @@ public class Account extends Object {
 			return this.balance;
 		}
 		// business logic
-		this.balance = this.balance - amount;
+		this.balance -= amount;
 		return this.balance;
 	}
 
@@ -44,7 +44,7 @@ public class Account extends Object {
 		if (amount <= 0.0) {
 			return this.balance;
 		}
-		this.balance = this.balance + amount;
+		this.balance += amount;
 		return this.balance;
 	}
 

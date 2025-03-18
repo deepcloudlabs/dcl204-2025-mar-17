@@ -69,8 +69,8 @@ class AccountTest {
 		var balanceAfterDeposit = acc.deposit(amount);
 		// 3. Verification
 		assertAll(
-				() -> assertEquals(depositAmount, balanceAfterDeposit), 
-				() -> assertEquals(depositAmount, acc.getBalance()), 
+				() -> assertEquals(depositAmount, balanceAfterDeposit,0.001), 
+				() -> assertEquals(depositAmount, acc.getBalance(),0.001), 
 				() -> assertEquals("tr1", acc.getIban())
 		);
 	}

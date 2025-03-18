@@ -41,7 +41,7 @@ public class Vehicle {
 	//          business methods: load(box), unload(box)
 	public boolean load(double weight) {
 		// validation
-		if(weight <= 0.0) {
+		if(weight <= 0.0) { 
 			return false;
 		}
 		// business rule
