@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class StudyArrays {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		int x = 42; // scalar
 		int numbers[] = { 4, 8, 15, 16, 23, 42 }; // array
