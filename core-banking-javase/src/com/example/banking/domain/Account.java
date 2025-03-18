@@ -6,8 +6,8 @@ package com.example.banking.domain;
 // Alt + Shift + S -> Generate Source code
 public class Account extends Object {
 	// Attributes: data/property/state
-	private String iban;
-	private double balance;
+	private final String iban;
+	protected double balance;
 
 	// Behaviors: method
 	// Constructor
