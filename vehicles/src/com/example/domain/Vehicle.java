@@ -64,5 +64,9 @@ public class Vehicle {
 		this.currentLoad -= weight;
 		return true;
 	}
-	//          toString
+	@Override
+	public String toString() {
+		return "Vehicle [maxLoad=" + maxLoad + ", currentLoad=" + currentLoad + "]";
+	}
+	
 }

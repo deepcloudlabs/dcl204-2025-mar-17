@@ -9,6 +9,12 @@ public class VehiclesApp {
 		Vehicle firstVehicle = new Vehicle(1_000);
 		Vehicle secondVehicle = new Vehicle(2_000,300);
 		Vehicle thirdVehicle = new Vehicle();
+		firstVehicle.load(500);
+		firstVehicle.load(250);
+		firstVehicle.load(300);
+		System.out.println(firstVehicle);
+		System.out.println(secondVehicle);
+		System.out.println(thirdVehicle);
 	}
 
 }
