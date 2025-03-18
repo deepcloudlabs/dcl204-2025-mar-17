@@ -26,6 +26,7 @@ public class Account extends Object {
 
 	// business method
 	public double withdraw(double amount) {
+		System.out.println("Account::withdraw");
 		// validation
 		if (amount <= 0.0) {
 			return this.balance;
