@@ -2,6 +2,7 @@ package com.example.animals.exercises;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.example.animals.domain.Animal;
 import com.example.animals.domain.Cat;
@@ -18,6 +19,8 @@ public class Exercise7 {
 		// Count the number of animals in each specie 
 		List<Animal> animals = Arrays.asList(new Cat(), new Spider(), new Cat("Tekir"), new Fish("Free Willy"),
 				new Spider(), new Fish("Jaws"));
-		
+		animals.stream()
+		       .collect(Collectors.groupingBy(Object::getClass, Collectors.counting()))
+		       .forEach((clazz,count) -> System.out.println("%s: %d".formatted(clazz.getSimpleName(),count)));
 	}
 }
