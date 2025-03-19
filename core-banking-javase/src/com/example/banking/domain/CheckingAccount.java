@@ -6,7 +6,7 @@ public class CheckingAccount extends Account {
 	private double overdraftAmount;
 
 	public CheckingAccount(String iban, double balance, double overdraftAmount) {
-		super(iban, balance);
+		super(iban, balance); 
 		this.overdraftAmount = overdraftAmount;
 	}
 

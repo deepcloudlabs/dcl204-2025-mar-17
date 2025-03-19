@@ -4,10 +4,11 @@ package com.example.banking.domain;
 // Alt + Arrow (Down/Up) -> Move line
 // Ctrl + D -> Delete Line
 // Alt + Shift + S -> Generate Source code
+
 public class Account extends Object {
 	// Attributes: data/property/state
 	private final String iban;
-	protected double balance;
+	double balance; // default permission, package-private
 
 	// Behaviors: method
 	// Constructor
@@ -16,11 +17,11 @@ public class Account extends Object {
 		this.balance = balance;
 	}
 
-	public String getIban() {
-		return iban;
+	public final String getIban() {
+		return this.iban;
 	}
 
-	public double getBalance() {
+	public final double getBalance() {
 		return balance;
 	}
 

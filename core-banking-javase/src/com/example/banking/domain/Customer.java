@@ -16,11 +16,11 @@ public class Customer {
 		this.accounts = new ArrayList<>();
 	}
 
-	public String getIdentity() {
+	public final String getIdentity() {
 		return identity;
 	}
 
-	public String getFullName() {
+	public String getFullName() { // String -> Immutable
 		return fullName;
 	}
 
