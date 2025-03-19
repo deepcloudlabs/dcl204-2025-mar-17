@@ -49,8 +49,8 @@ public class ZooApp {
 		// Declarative Programming: Stream API -> Collection API
 		totalPetLegs = zooAnimals.stream()
 				                 .parallel()
-				                 .filter(Pet.class::isInstance)
-				                 .mapToInt(Animal::getLegs)
+				                 .filter(Pet.class::isInstance) // HoF
+				                 .mapToInt(Animal::getLegs) // HoF
 				                 .sum(); // reduce
 		System.out.println("Total number of Pet's legs: "+totalPetLegs);
 	}
