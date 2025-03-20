@@ -18,7 +18,9 @@ public class StudyList {
         var stop = System.currentTimeMillis();
         System.out.println("%d: %d ms.".formatted(numbers.size(),(stop-start)));
         System.out.println(numbers.contains(15));
-
+        for (var number : numbers) {
+        	System.out.println(number);
+        }
 	}
 
 }

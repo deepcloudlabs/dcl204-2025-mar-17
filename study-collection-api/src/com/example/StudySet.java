@@ -27,7 +27,9 @@ public class StudySet {
         customers.add(new Customer("1", "Jack Bauer"));
         System.out.println(customers.contains(new Customer("2", "Kate Austen"))); // false
         System.out.println(customers.contains(new Customer("1", "Jack Bauer"))); // true
-        
+        for (var number : numbers) {
+        	System.out.println(number);
+        }      
 	}
 
 }
