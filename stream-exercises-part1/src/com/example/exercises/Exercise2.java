@@ -1,9 +1,11 @@
 package com.example.exercises;
 
-import java.util.Comparator;
-import java.util.Objects;
+import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.maxBy;
+
+import java.util.Collection;
+import java.util.Optional;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 import com.example.dao.CountryDao;
 import com.example.dao.InMemoryWorldDao;
@@ -19,17 +21,22 @@ public class Exercise2 {
 
 	public static void main(String[] args) {
 		// Find the most populated city of each continent
-		Function<ContinentCity, Integer> populationExtractor = continentCity -> continentCity.city().getPopulation();
-		var highPopCitiesByContinent =
-		countryDao.findAllCountries()
-		          .stream()                // Stream<Country>
-		          .filter(country -> Objects.nonNull(country.getCities()))
-		          .filter(country -> !country.getContinent().equals("Antarctica"))
-		          .map(country -> new ContinentCity(country.getContinent(), country.getCities().stream().max(Comparator.comparingInt(City::getPopulation)).get())) // Stream<ContinentCities>
-		          .collect(Collectors.groupingBy(ContinentCity::continent,Collectors.maxBy(Comparator.comparing(populationExtractor))));
-		highPopCitiesByContinent.forEach((continent,continentCity) -> System.out.println("%16s: %32s".formatted(continent,continentCity.get().city().getName())));
+		var highPopulatedCityOfEachContinent = countryDao.findAllCountries().stream()
+				.map(country -> country.getCities().stream()
+				.map(city -> new ContinentCityPair(country.getContinent(), city)).toList())
+				.flatMap(Collection::stream)
+				.collect(groupingBy(ContinentCityPair::continent,maxBy(ContinentCityPair::compareTo)));
+		highPopulatedCityOfEachContinent.forEach(ContinentCityPair::printEntry);
 	}
 
 }
 
-record ContinentCity(String continent,City city) {}
+record ContinentCityPair(String continent, City city) {
+	public int compareTo(ContinentCityPair other) {
+		return this.city.getPopulation() - other.city.getPopulation();
+	}
+
+	public static void printEntry(String continent, Optional<ContinentCityPair> pair) {
+		System.out.printf("%s: %s\n", continent, pair.get().city());
+	}
+}
