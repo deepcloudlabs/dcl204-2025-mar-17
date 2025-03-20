@@ -9,7 +9,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  * @author Binnur Kurt <binnur.kurt@gmail.com>
  *
  */
-@Configuration
+@Configuration 
 @ComponentScan("com.example")
 @EnableAspectJAutoProxy
 public class AppConfig {
